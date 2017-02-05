@@ -5,7 +5,7 @@
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-  <display-name>web-ssm</display-name>
+  <display-name>icity</display-name>
 
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -17,17 +17,6 @@
     <param-value>classpath:log4j.properties</param-value>
   </context-param>
 
-
-  <!-- Servlet Url的配置 -->
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/Register</url-pattern>
-  </servlet-mapping>
 
   <!-- 编码过滤器 -->
   <filter>

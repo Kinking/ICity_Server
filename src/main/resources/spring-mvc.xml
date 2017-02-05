@@ -10,6 +10,8 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <!-- 相当于applicationContext.xml -->
+
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.hundsun.jerry.icity.controller"/>
 
@@ -47,4 +49,8 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="4096"/>
     </bean>
+
+
+
+
 </beans>

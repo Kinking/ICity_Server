@@ -1,24 +1,29 @@
 package com.hundsun.jerry.icity.controller.user;
 
 import com.hundsun.jerry.icity.service.UserService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by huangzhiyuan on 2017/1/21.
+ * Created by huangzhiyuan on 2017/2/5.
  */
-@WebServlet(name = "LoginServlet")
-public class LoginServlet extends HttpServlet {
+
+@Controller
+public class LoginController {
     @Resource
     private UserService userService;
 
+    @RequestMapping("/LoginController")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         request.setCharacterEncoding("utf-8");
@@ -27,6 +32,7 @@ public class LoginServlet extends HttpServlet {
         System.out.println("进来了");
         String username=request.getParameter("username");
         String password=request.getParameter("password");
+        System.out.println("获得了账号和密码");
 
         boolean b=userService.login(username,password);
         if (b)
@@ -44,4 +50,5 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
+
 }
