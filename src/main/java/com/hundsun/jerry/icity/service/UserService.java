@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface UserService {
     //登录判断
-    public boolean login(String username,String password);
+    boolean login(@Param("username")String username,@Param("password")String password);
 
     //创建新用户
     Integer addUser(User user);

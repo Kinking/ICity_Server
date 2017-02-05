@@ -29,12 +29,18 @@ public class LoginController {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         PrintWriter out=response.getWriter();
+
         System.out.println("进来了");
+
         String username=request.getParameter("username");
         String password=request.getParameter("password");
-        System.out.println("获得了账号和密码");
+
+        System.out.println("获得的账号和密码是"+username+"和"+password);
 
         boolean b=userService.login(username,password);
+
+        System.out.print("b的值为"+ b );
+
         if (b)
         {
             out.write("登录成功");
@@ -45,6 +51,8 @@ public class LoginController {
         }
         out.flush();
         out.close();
+
+        System.out.println("执行完了判断");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

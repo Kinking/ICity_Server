@@ -24,10 +24,16 @@ public class UserServiceImpl implements UserService{
     private UserMapper userMapper;
 
     public boolean login(String username, String password) {
-        User user = userMapper.selectByUsername(username);
+        System.out.print("传入UserServiceImpl的login方法的参数为"+username+"和"+password+"\n");
+
+        User user = userMapper.selectByUsername(username);//此句有问题
+/***********此处参数为空************/
+        System.out.print("进入if之前查询出来的UserId:" + user.getId()+"\n");
+
         if(user!=null){
-//            System.out.print("查询出来的账号:" + user.getUserName() + "密码:" + user.getUserPwd());
-//            System.out.print("----------------");
+
+            System.out.print("进入if之后查询出来的账号:" + user.getUserName() + "密码:" + user.getUserPwd()+"\n");
+
             if(user.getUserName().equals(username)&&user.getUserPwd().equals(password)) return true;
         }
         return false;

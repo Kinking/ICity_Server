@@ -57,8 +57,9 @@
     </select>
 
     <!-- 通过用户名查找用户信息 -->
-    <select id="selectByUsername" parameterType="string" resultType="com.hundsun.jerry.icity.model.User">
-        select * from user where username = #{username}
+    <select id="selectByUsername" parameterType="string" resultMap="UserBaseMap">
+        SELECT * from user
+        WHERE u_name = #{username}
     </select>
 
     <!--<select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">-->
