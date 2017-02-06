@@ -3,12 +3,12 @@ package com.hundsun.jerry.icity.controller.user;
 import com.google.gson.Gson;
 import com.hundsun.jerry.icity.model.User;
 import com.hundsun.jerry.icity.service.UserService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
@@ -18,14 +18,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by huangzhiyuan on 2017/1/21.
+ * Created by huangzhiyuan on 2017/2/6.
  */
-@WebServlet(name = "RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+
+@Controller
+public class RegisterController {
     @Resource
     private UserService userService;
 
-    private Integer addUser(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private Integer addUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fileName = null;  //图片名称
         String urls = null;  //图片所在链接
         User user = null;
@@ -107,6 +108,7 @@ public class RegisterServlet extends HttpServlet {
     }
 
 
+    @RequestMapping("/RegisterController")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer result = addUser(request,response);
         response.setContentType("text/html;charset=	UTF-8");
