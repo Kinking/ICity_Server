@@ -28,7 +28,7 @@
     <!-- 创建新用户 -->
     <insert id="addUser" parameterType="com.hundsun.jerry.icity.model.User" >
         INSERT INTO user (u_name,u_password,u_tel,u_email,register_date)
-        VALUES (#{userName},#{uerPwd},#{userTel},#{userEmail},#{userRegisterDate})
+        VALUES (#{userName},#{userPwd},#{userTel},#{userEmail},#{userRegisterDate})
     </insert>
 
     <!-- 删除用户 -->
