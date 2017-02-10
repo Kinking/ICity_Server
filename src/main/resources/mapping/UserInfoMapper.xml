@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hundsun.jerry.icity.mapper.UserInfoMapper">
+    <!-- 定义数据库字段与实体对象的映射关系 -->
+    <resultMap type="com.hundsun.jerry.icity.model.UserInfo" id="UserInfoBaseMap">
+        <id column="u_id" property="userId" jdbcType="BIGINT"/>
+        <result column="true_name" property="userTrueName" jdbcType="VARCHAR"/>
+        <result column="user_nickname" property="userNickname" jdbcType="VARCHAR"/>
+        <result column="u_sex" property="Sex" jdbcType="VARCHAR"/>
+        <result column="birthday" property="Birthday" jdbcType="VARCHAR"/>
+        <result column="age" property="Age" jdbcType="VARCHAR"/>
+        <result column="qq" property="QQNumber" jdbcType="VARCHAR"/>
+        <result column="introduce" property="Introduction" jdbcType="VARCHAR"/>
+        <result column="declaration" property="Declaration" jdbcType="VARCHAR"/>
+        <result column="profession" property="Profession" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 定义参数模型 -->
+    <parameterMap type="com.hundsun.jerry.icity.model.UserInfo" id="UserInfoParam">
+        <parameter property="userId"/>
+        <parameter property="userTrueName"/>
+        <parameter property="userNickname"/>
+        <parameter property="Sex"/>
+        <parameter property="Birthday"/>
+        <parameter property="Age"/>
+        <parameter property="QQNumber"/>
+        <parameter property="Introduction"/>
+        <parameter property="Declaration"/>
+        <parameter property="Profession"/>
+    </parameterMap>
+
+    <!-- 更新用户个人资料 -->
+    <update id="updateUserInfo" parameterType="com.hundsun.jerry.icity.model.UserInfo" >
+        UPDATE user
+        <set>
+            <if test="truename != null">true_name=#{userTrueName},</if>
+            <if test="usernickename != null">user_nickname=#{userNickname},</if>
+            <if test="sex != null">u_sex=#{Sex},</if>
+            <if test="birthday != null">birthday=#{Birthday},</if>
+            <if test="age != null">age=#{Age},</if>
+            <if test="qqnumber != null">qq=#{QQNumber},</if>
+            <if test="introduction != null">introduction=#{Introduction},</if>
+            <if test="declaration != null">declaration=#{Declaration},</if>
+            <if test="profession != null">profession=#{Profession},</if>
+        </set>
+        WHERE u_id=#{id}
+    </update>
+
+
+</mapper>

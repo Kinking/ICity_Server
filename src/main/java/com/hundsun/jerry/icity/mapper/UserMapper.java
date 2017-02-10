@@ -35,4 +35,5 @@ public interface UserMapper {
 
     //查询用户数
     Integer count();
+
 }

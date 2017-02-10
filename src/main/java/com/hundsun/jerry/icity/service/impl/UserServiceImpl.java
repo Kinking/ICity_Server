@@ -40,6 +40,8 @@ public class UserServiceImpl implements UserService{
     }
 
     public Integer addUser(User user) {
+        //测试传入的数据
+        System.out.print("传入的UserName为" + user.getUserName());
         return userMapper.addUser(user);
     }
 

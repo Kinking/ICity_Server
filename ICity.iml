@@ -67,5 +67,17 @@
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
     <orderEntry type="library" name="commons-logging-1.1.1" level="project" />
+    <orderEntry type="module-library">
+      <library name="Gson">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/resources/lib/gson-2.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="gson-1.5" level="project" />
+    <orderEntry type="library" name="commons-logging-1.1.1 (2)" level="project" />
+    <orderEntry type="library" name="httpclient-4.1.2" level="project" />
   </component>
 </module>
