@@ -31,7 +31,7 @@
 
     <!-- 更新用户个人资料 -->
     <update id="updateUserInfo" parameterType="com.hundsun.jerry.icity.model.UserInfo" >
-        UPDATE user
+        UPDATE user_info
         <set>
             <if test="truename != null">true_name=#{userTrueName},</if>
             <if test="usernickename != null">user_nickname=#{userNickname},</if>

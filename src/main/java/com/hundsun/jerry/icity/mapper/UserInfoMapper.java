@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserInfoMapper {
+
     //更细用户个人信息
-    //更新用户数据
     Integer updateUserInfoById(UserInfo userInfo);
 }

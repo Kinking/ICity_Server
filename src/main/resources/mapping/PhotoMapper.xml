@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hundsun.jerry.icity.mapper.PhotoMapper">
+
+    <!-- 定义数据库字段与实体对象的映射关系 -->
+    <resultMap type="com.hundsun.jerry.icity.model.Photo" id="PhotoBaseMap">
+        <id column="p_id" property="pId" jdbcType="INTEGER"/>
+        <id column="u_id" property="uId" jdbcType="BIGINT"/>
+        <result column="p_name" property="photoName" jdbcType="VARCHAR"/>
+        <result column="photo_url" property="photoUrl" jdbcType="VARCHAR"/>
+        <result column="up_time" property="uploadTime" jdbcType="VARCHAR"/>
+        <result column="p_remark" property="photoRemark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 定义参数模型 -->
+    <parameterMap type="com.hundsun.jerry.icity.model.Photo" id="PhotoParam">
+        <parameter property="pId"/>
+        <parameter property="uId"/>
+        <parameter property="photoName"/>
+        <parameter property="photoUrl"/>
+        <parameter property="uploadTime"/>
+        <parameter property="photoRemark"/>
+    </parameterMap>
+
+    <!-- 定义要操纵的SQL语句 -->
+
+    <!-- 创建新照片信息 -->
+    <insert id="addPhoto" parameterType="com.hundsun.jerry.icity.model.Photo" >
+        INSERT INTO photo (p_name,photo_url,up_time,p_remark)
+        VALUES (#{photoName},#{photoUrl},#{uploadTime},#{photoRemark})
+    </insert>
+
+
+    <!-- 修改照片资料 -->
+    <update id="modify" parameterType="com.hundsun.jerry.icity.model.Photo" >
+        UPDATE photo
+        <set>
+            <if test="p_name != null">p_name=#{photoName},</if>
+            <if test="photo_url != null">photo_url=#{photoUrl},</if>
+            <if test="up_time != null">up_time=#{uploadTime},</if>
+            <if test="p_remark != null">p_remark=#{photoRemark},</if>
+        </set>
+        WHERE p_id=#{pId}
+    </update>
+
+
+    <select id="count" resultType="Integer">
+        SELECT count(*) photo
+    </select>
+
+    <!--&lt;!&ndash; 用户唯一性判断 &ndash;&gt;-->
+    <!--<select id="judgeUser" parameterType="String" resultMap="com.hundsun.jerry.icity.model.User">-->
+    <!--select phone_mobile from user_login where phone_mobile=#{phone_mobile}-->
+    <!--</select>-->
+
+
+
+</mapper>
