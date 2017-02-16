@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hundsun.jerry.icity.mapper.MomentMapper">
+
+    <!-- 定义数据库字段与实体对象的映射关系 -->
+    <resultMap type="com.hundsun.jerry.icity.model.Moment" id="MomentBaseMap">
+        <id column="m_id" property="mId" jdbcType="INTEGER"/>
+        <id column="u_id" property="uId" jdbcType="BIGINT"/>
+        <result column="img_urls" property="imgUrls" jdbcType="VARCHAR"/>
+        <result column="text_content" property="textContent" jdbcType="VARCHAR"/>
+        <result column="m_up_time" property="mUpTime" jdbcType="VARCHAR"/>
+        <result column="m_del_time" property="mDelTime" jdbcType="VARCHAR"/>
+        <result column="m_location" property="mLocation" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 定义参数模型 -->
+    <parameterMap type="com.hundsun.jerry.icity.model.Moment" id="MomentParam">
+        <parameter property="mId"/>
+        <parameter property="uId"/>
+        <parameter property="imgUrls"/>
+        <parameter property="textContent"/>
+        <parameter property="mUpTime"/>
+        <parameter property="mDelTime"/>
+        <parameter property="mLocation"/>
+    </parameterMap>
+
+    <!-- 定义要操纵的SQL语句 -->
+
+    <!-- 创建新朋友圈 -->
+    <insert id="addMoment" parameterType="com.hundsun.jerry.icity.model.Moment" >
+        INSERT INTO moment (img_urls,text_content,m_up_time,m_del_time,m_location)
+        VALUES (#{imgUrls},#{textContent},#{mUpTime},#{mDelTime},#{mLocation})
+    </insert>
+
+    <!-- 删除朋友圈 -->
+    <delete id="deleteMomentByMid" parameterType="Integer" >
+        DELETE FROM moment
+        WHERE m_id = #{mId}
+    </delete>
+
+    <!-- 修改用户资料 -->
+    <update id="modify" parameterType="com.hundsun.jerry.icity.model.Moment" >
+        UPDATE moment
+        <set>
+            <if test="imgurls != null">img_urls=#{imgUrls},</if>
+            <if test="textcontent != null">text_content=#{textContent},</if>
+            <if test="muptime != null">m_up_time=#{mUpTime},</if>
+            <if test="mdeltime != null">m_del_time=#{mDelTime},</if>
+            <if test="mlocation != null">m_location=#{mLocation},</if>
+        </set>
+        WHERE m_id=#{mId}
+    </update>
+
+    <!-- 通过id选择朋友圈 -->
+    <select id="selectMomentByMid" parameterType="java.lang.Integer" resultMap="MomentBaseMap">
+        SELECT * FROM moment
+        WHERE m_id = #{mId}
+    </select>
+
+    <!--<select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">-->
+    <!--SELECT * FROM user-->
+    <!--WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}-->
+    <!--AND user_state = #{state}-->
+    <!--</select>-->
+
+    <select id="selectAllMoment" resultMap="MomentBaseMap">
+        SELECT * FROM moment
+    </select>
+
+    <select id="count" resultType="Integer">
+        SELECT count(*) moment
+    </select>
+
+    <!--&lt;!&ndash; 用户唯一性判断 &ndash;&gt;-->
+    <!--<select id="judgeUser" parameterType="String" resultMap="com.hundsun.jerry.icity.model.User">-->
+    <!--select phone_mobile from user_login where phone_mobile=#{phone_mobile}-->
+    <!--</select>-->
+
+
+
+</mapper>

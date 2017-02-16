@@ -35,10 +35,10 @@
     <update id="modify" parameterType="com.hundsun.jerry.icity.model.Photo" >
         UPDATE photo
         <set>
-            <if test="p_name != null">p_name=#{photoName},</if>
-            <if test="photo_url != null">photo_url=#{photoUrl},</if>
-            <if test="up_time != null">up_time=#{uploadTime},</if>
-            <if test="p_remark != null">p_remark=#{photoRemark},</if>
+            <if test="pname != null">p_name=#{photoName},</if>
+            <if test="photourl != null">photo_url=#{photoUrl},</if>
+            <if test="uptime != null">up_time=#{uploadTime},</if>
+            <if test="premark != null">p_remark=#{photoRemark},</if>
         </set>
         WHERE p_id=#{pId}
     </update>
