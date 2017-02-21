@@ -29,6 +29,12 @@
         <parameter property="Profession"/>
     </parameterMap>
 
+    <!-- 通过id选择用户信息 -->
+    <select id="selectByUserId" parameterType="java.lang.Long" resultMap="UserInfoBaseMap">
+        SELECT * FROM user_info
+        WHERE id = #{userId}
+    </select>
+
     <!-- 更新用户个人资料 -->
     <update id="updateUserInfo" parameterType="com.hundsun.jerry.icity.model.UserInfo" >
         UPDATE user_info

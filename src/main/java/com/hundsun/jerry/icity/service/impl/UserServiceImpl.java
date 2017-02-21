@@ -69,5 +69,9 @@ public class UserServiceImpl implements UserService{
         return userMapper.count();
     }
 
+    public Integer getUserId(String userName) {
+        return userMapper.selectIdByUsername(userName);
+    }
+
 
 }

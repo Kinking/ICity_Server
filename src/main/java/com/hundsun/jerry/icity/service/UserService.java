@@ -36,5 +36,8 @@ public interface UserService {
     //查询用户数
     Integer count();
 
+    //根据用户名获取用户的id
+    Integer getUserId(String userName);
+
 
 }

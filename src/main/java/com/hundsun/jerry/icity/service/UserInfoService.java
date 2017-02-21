@@ -8,4 +8,7 @@ import com.hundsun.jerry.icity.model.UserInfo;
 public interface UserInfoService {
     //更新各人用户信息
     Integer updateUserInfoById(UserInfo userInfo);
+
+    //判断用户信息是否为空
+    boolean judgeUserById(Integer userId);
 }

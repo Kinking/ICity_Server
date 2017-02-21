@@ -28,6 +28,9 @@ public interface UserMapper {
     //根据id查询用户数据
     User selectUserById(@Param("userId") Integer userId);
 
+    //根据userName查询用户id
+    Integer selectIdByUsername(@Param("userName") String userName);
+
     User selectUserByPhoneOrEmail(@Param("emailOrPhone") String emailOrPhone, @Param("state") Short state);
 
     //查询所有用户数据

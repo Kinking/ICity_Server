@@ -62,6 +62,12 @@
         WHERE u_name = #{username}
     </select>
 
+    <!-- 通过用户名查找用户id-->
+    <select id="selectIdByUsername" parameterType="string" resultMap="UserBaseMap">
+        SELECT id from user
+        WHERE u_name = #{username}
+    </select>
+
     <!--<select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">-->
     <!--SELECT * FROM user-->
     <!--WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}-->
