@@ -20,12 +20,28 @@ public class UserInfoServiceImpl implements UserInfoService{
 
     private UserInfoMapper userInfoMapper;
 
+    public String addUserInfo(UserInfo userInfo) {
+        //测试传入的数据
+        System.out.print("传入的UserName为" + userInfo.getUserName());
+        return userInfoMapper.addUserInfo(userInfo);
+    }
+
     public Integer updateUserInfoById(UserInfo userInfo) {
         return userInfoMapper.updateUserInfoById(userInfo);
     }
 
     public boolean judgeUserById(Integer userId) {
         UserInfo userInfo=userInfoMapper.selectByUserId(userId);
+
+        if (userInfo!=null){
+            System.out.println("选出的用户信息不为空");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean judgeUserInfoByUsername(String userName) {
+        UserInfo userInfo=userInfoMapper.selectByUsername(userName);
 
         if (userInfo!=null){
             System.out.println("选出的用户信息不为空");

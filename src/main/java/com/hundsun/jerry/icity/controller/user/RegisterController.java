@@ -1,6 +1,8 @@
 package com.hundsun.jerry.icity.controller.user;
 
 import com.hundsun.jerry.icity.model.User;
+import com.hundsun.jerry.icity.model.UserInfo;
+import com.hundsun.jerry.icity.service.UserInfoService;
 import com.hundsun.jerry.icity.service.UserService;
 import com.hundsun.jerry.icity.utils.json.JsonUtil;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.Null;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -27,6 +30,8 @@ import java.util.List;
 public class RegisterController {
     @Resource
     private UserService userService;
+
+    private UserInfoService userInfoService;
 
     private Integer addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         //设置传输字符串的格式
@@ -101,7 +106,8 @@ public class RegisterController {
         out.flush();
         out.close();
 
-
+        UserInfo userInfo = new UserInfo(null,null,null,null,null,null,null,null,null,null,user.getUserName());
+        userInfoService.addUserInfo(userInfo);
 
         //尽量用print，而不要用printlnf
         return userService.addUser(user);

@@ -14,4 +14,10 @@ public interface UserInfoMapper {
 
     //根据用户Id获取用户信息
     UserInfo selectByUserId(Integer userId);
+
+    //根据用户Username获取用户信息
+    UserInfo selectByUsername(String userName);
+
+    //仅仅插入Username
+    String addUserInfo(UserInfo userName);
 }

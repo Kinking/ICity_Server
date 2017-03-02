@@ -1,5 +1,6 @@
 package com.hundsun.jerry.icity.controller.user;
 
+import com.hundsun.jerry.icity.service.UserInfoService;
 import com.hundsun.jerry.icity.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import java.io.PrintWriter;
 public class LoginController {
     @Resource
     private UserService userService;
+    private UserInfoService userInfoService;
 
     @RequestMapping("/LoginController")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
