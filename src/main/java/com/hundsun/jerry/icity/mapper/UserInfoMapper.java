@@ -20,4 +20,5 @@ public interface UserInfoMapper {
 
     //仅仅插入Username
     String addUserInfo(UserInfo userName);
+
 }

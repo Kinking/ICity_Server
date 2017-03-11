@@ -18,4 +18,7 @@ public interface UserInfoService {
     //根据userName判断UserInfo是否为空
     boolean judgeUserInfoByUsername(String userName);
 
+    //根据userName获取UserInfo的内容
+    public UserInfo getUserInfoByUsername(String userName);
+
 }

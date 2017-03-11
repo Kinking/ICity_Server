@@ -49,4 +49,9 @@ public class UserInfoServiceImpl implements UserInfoService{
         }
         return false;
     }
+
+    public UserInfo getUserInfoByUsername(String userName){
+        UserInfo userInfo=userInfoMapper.selectByUsername(userName);
+        return userInfo;
+    }
 }

@@ -1,7 +1,9 @@
 package com.hundsun.jerry.icity.controller.user;
 
+import com.hundsun.jerry.icity.model.UserInfo;
 import com.hundsun.jerry.icity.service.UserInfoService;
 import com.hundsun.jerry.icity.service.UserService;
+import com.hundsun.jerry.icity.utils.json.WriteJson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by huangzhiyuan on 2017/2/5.
@@ -45,6 +49,25 @@ public class LoginController {
 
         if (b)
         {
+            UserInfo userInfo=userInfoService.getUserInfoByUsername(username);
+            String jsonString=null;
+
+            //构造一个user对象
+            List<UserInfo> list=new ArrayList<UserInfo>();
+            list.add(userInfo);
+
+            WriteJson writeJson=new WriteJson();
+            //将user对象写出json形式字符串
+            jsonString= writeJson.getJsonData(list);
+
+            //把json封装的实体类字符串返回给移动端
+
+            response.setContentType("application/json");
+            response.getWriter().write(jsonString);
+            response.getWriter().close();
+
+
+
             out.write("登录成功");
         }
         else
