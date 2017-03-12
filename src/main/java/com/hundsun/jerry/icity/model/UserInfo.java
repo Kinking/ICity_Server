@@ -5,25 +5,39 @@ package com.hundsun.jerry.icity.model;
  */
 public class UserInfo {
     private Integer userId;
-    private String userTrueName;
+    private String img_url;
     private String userNickname;
     private String sex;
-    private String birthday;
     private Integer age;
+    private String userTrueName;
+    private String birthday;
+    private String constellation;
+    private String tel;
     private String qqNumber;
+    private String email;
+    private String address;
     private String introduction;
     private String declaration;
     private String profession;
     private String userName;
 
-    public UserInfo(Integer userId, String userTrueName, String userNickname, String sex, String birthday, Integer age, String qqNumber, String introduction, String declaration, String profession,String username) {
+    public UserInfo(Integer userId, String img_url, String userNickname, String sex, Integer age,
+                    String userTrueName,String birthday,String constellation,String tel,
+                    String qqNumber, String email,String address,String introduction,
+                    String declaration, String profession, String username) {
+
         this.userId = userId;
+        this.img_url = img_url;
         this.userTrueName = userTrueName;
         this.userNickname = userNickname;
         this.sex = sex;
         this.birthday = birthday;
         this.age = age;
+        this.constellation = constellation;
+        this.tel=tel;
         this.qqNumber = qqNumber;
+        this.email=email;
+        this.address=address;
         this.introduction = introduction;
         this.declaration = declaration;
         this.profession = profession;
@@ -38,12 +52,12 @@ public class UserInfo {
         this.userId = userId;
     }
 
-    public String getUserTrueName() {
-        return userTrueName;
+    public String getImg_url() {
+        return img_url;
     }
 
-    public void setUserTrueName(String userTrueName) {
-        this.userTrueName = userTrueName;
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
     }
 
     public String getUserNickname() {
@@ -62,14 +76,6 @@ public class UserInfo {
         this.sex = sex;
     }
 
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
     public Integer getAge() {
         return age;
     }
@@ -78,12 +84,60 @@ public class UserInfo {
         this.age = age;
     }
 
+    public String getUserTrueName() {
+        return userTrueName;
+    }
+
+    public void setUserTrueName(String userTrueName) {
+        this.userTrueName = userTrueName;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getConstellation() {
+        return constellation;
+    }
+
+    public void setConstellation(String constellation) {
+        this.constellation = constellation;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
     public String getQqNumber() {
         return qqNumber;
     }
 
     public void setQqNumber(String qqNumber) {
         this.qqNumber = qqNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getIntroduction() {
@@ -117,4 +171,7 @@ public class UserInfo {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+
+
 }

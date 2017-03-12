@@ -106,7 +106,7 @@ public class RegisterController {
         out.flush();
         out.close();
 
-        UserInfo userInfo = new UserInfo(null,null,null,null,null,null,null,null,null,null,user.getUserName());
+        UserInfo userInfo = new UserInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,user.getUserName());
         userInfoService.addUserInfo(userInfo);
 
         //尽量用print，而不要用printlnf
