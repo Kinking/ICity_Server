@@ -57,7 +57,7 @@ public class RegisterController {
         //使用JsonUtil将传入的输入流解析到我们后台的User数据类
         JsonUtil jsonUtil=new JsonUtil();
         System.out.println(jsonStr);
-        List<User> list=jsonUtil.StringFromJson(jsonStr);
+        List<User> list=jsonUtil.userStringFromJson(jsonStr);
         User user=list.get(0);
 
 //        User user = (User) JsonUtil.getListFromJSON(jsonStr, User[].class);
@@ -92,20 +92,16 @@ public class RegisterController {
 
         String path = "/Users/huangzhiyuan/Documents/city_pic"+fileName;
         OutputStream out = new FileOutputStream(path);
-//
-//
-//
-//
+
 //      file = new File(path, fileName);
         urls = "http://xiangsong.online/Morph/img/"+fileName;
-//
-//
-//
+
 //      System.out.println("file:"+file.getName());
         out.write(decoderBytes);
         out.flush();
         out.close();
 
+        //注册用户的同时将userName存入userInfo表中去，方便后面userInfo的相关操作
         UserInfo userInfo = new UserInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,user.getUserName());
         userInfoService.addUserInfo(userInfo);
 

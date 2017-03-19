@@ -6,30 +6,30 @@
     <resultMap type="com.hundsun.jerry.icity.model.Moment" id="MomentBaseMap">
         <id column="m_id" property="mId" jdbcType="INTEGER"/>
         <id column="u_id" property="uId" jdbcType="BIGINT"/>
-        <result column="img_urls" property="imgUrls" jdbcType="VARCHAR"/>
-        <result column="text_content" property="textContent" jdbcType="VARCHAR"/>
+        <result column="usernickname" property="userNickname" jdbcType="VARCHAR"/>
+        <result column="moment_content" property="momentContent" jdbcType="VARCHAR"/>
         <result column="m_up_time" property="mUpTime" jdbcType="VARCHAR"/>
-        <result column="m_del_time" property="mDelTime" jdbcType="VARCHAR"/>
-        <result column="m_location" property="mLocation" jdbcType="VARCHAR"/>
+        <result column="longitude" property="longitude" jdbcType="DOUBLE"/>
+        <result column="latitude" property="latitude" jdbcType="DOUBLE"/>
     </resultMap>
 
     <!-- 定义参数模型 -->
     <parameterMap type="com.hundsun.jerry.icity.model.Moment" id="MomentParam">
         <parameter property="mId"/>
         <parameter property="uId"/>
-        <parameter property="imgUrls"/>
-        <parameter property="textContent"/>
+        <parameter property="userNickname"/>
+        <parameter property="momentContent"/>
         <parameter property="mUpTime"/>
-        <parameter property="mDelTime"/>
-        <parameter property="mLocation"/>
+        <parameter property="longitude"/>
+        <parameter property="latitude"/>
     </parameterMap>
 
     <!-- 定义要操纵的SQL语句 -->
 
     <!-- 创建新朋友圈 -->
     <insert id="addMoment" parameterType="com.hundsun.jerry.icity.model.Moment" >
-        INSERT INTO moment (img_urls,text_content,m_up_time,m_del_time,m_location)
-        VALUES (#{imgUrls},#{textContent},#{mUpTime},#{mDelTime},#{mLocation})
+        INSERT INTO moment (usernickname,moment_content,m_up_time,longtitude,latitude)
+        VALUES (#{userNickname},#{momentContent},#{mUpTime},#{longitude},#{latitude})
     </insert>
 
     <!-- 删除朋友圈 -->
@@ -42,11 +42,11 @@
     <update id="modify" parameterType="com.hundsun.jerry.icity.model.Moment" >
         UPDATE moment
         <set>
-            <if test="imgurls != null">img_urls=#{imgUrls},</if>
-            <if test="textcontent != null">text_content=#{textContent},</if>
+            <if test="usernickname != null">usernickname=#{userNickname},</if>
+            <if test="momentcontent != null">moment_content=#{momentContent},</if>
             <if test="muptime != null">m_up_time=#{mUpTime},</if>
-            <if test="mdeltime != null">m_del_time=#{mDelTime},</if>
-            <if test="mlocation != null">m_location=#{mLocation},</if>
+            <if test="longitude != null">longitude=#{longitude},</if>
+            <if test="latitude != null">latitude=#{latitude},</if>
         </set>
         WHERE m_id=#{mId}
     </update>

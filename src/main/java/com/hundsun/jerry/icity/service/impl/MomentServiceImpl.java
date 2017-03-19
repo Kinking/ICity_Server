@@ -24,7 +24,7 @@ public class MomentServiceImpl implements MomentService{
 
     public Integer addMoment(Moment moment) {
         //测试传入的数据
-        System.out.print("传入的Text_Context为" + moment.getTextContent());
+        System.out.print("传入的Text_Context为" + moment.getMomentContent());
         return momentMapper.addMoment(moment);
     }
 

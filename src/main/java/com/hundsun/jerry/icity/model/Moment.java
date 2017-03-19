@@ -6,20 +6,20 @@ package com.hundsun.jerry.icity.model;
 public class Moment {
     private Integer mId;
     private Integer uId;
-    private String imgUrls;
-    private String textContent;
+    private String userNickName;
+    private String momentContent;
     private String mUpTime;
-    private String mDelTime;
-    private String mLocation;
+    private Double longitude;
+    private Double latitude;
 
-    public Moment(Integer mId, Integer uId, String imgUrls, String textContent, String mUpTime, String mDelTime, String mLocation) {
+    public Moment(Integer mId, Integer uId, String userNickName, String momentContent, String mUpTime, Double longitude, Double latitude) {
         this.mId = mId;
         this.uId = uId;
-        this.imgUrls = imgUrls;
-        this.textContent = textContent;
+        this.userNickName = userNickName;
+        this.momentContent = momentContent;
         this.mUpTime = mUpTime;
-        this.mDelTime = mDelTime;
-        this.mLocation = mLocation;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     public Integer getmId() {
@@ -38,20 +38,20 @@ public class Moment {
         this.uId = uId;
     }
 
-    public String getImgUrls() {
-        return imgUrls;
+    public String getUserNickName() {
+        return userNickName;
     }
 
-    public void setImgUrls(String imgUrls) {
-        this.imgUrls = imgUrls;
+    public void setUserNickName(String userNickName) {
+        this.userNickName = userNickName;
     }
 
-    public String getTextContent() {
-        return textContent;
+    public String getMomentContent() {
+        return momentContent;
     }
 
-    public void setTextContent(String textContent) {
-        this.textContent = textContent;
+    public void setMomentContent(String momentContent) {
+        this.momentContent = momentContent;
     }
 
     public String getmUpTime() {
@@ -62,19 +62,19 @@ public class Moment {
         this.mUpTime = mUpTime;
     }
 
-    public String getmDelTime() {
-        return mDelTime;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setmDelTime(String mDelTime) {
-        this.mDelTime = mDelTime;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
-    public String getmLocation() {
-        return mLocation;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setmLocation(String mLocation) {
-        this.mLocation = mLocation;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 }
