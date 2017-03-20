@@ -1,9 +1,11 @@
 package com.hundsun.jerry.icity.model;
 
+import java.io.Serializable;
+
 /**
  * Created by huangzhiyuan on 2017/2/15.
  */
-public class Photo {
+public class Photo implements Serializable{
     private Integer pId;
     private Integer uId;
     private String photoName;

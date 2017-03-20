@@ -1,9 +1,11 @@
 package com.hundsun.jerry.icity.model;
 
+import java.io.Serializable;
+
 /**
  * Created by huangzhiyuan on 2017/2/16.
  */
-public class Moment {
+public class Moment implements Serializable{
     private Integer mId;
     private Integer uId;
     private String userNickName;
