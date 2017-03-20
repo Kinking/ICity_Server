@@ -32,7 +32,7 @@ public class MomentController {
 
         //PrintWriter是一种过滤流/处理流，对字节/字符流进行处理
         PrintWriter Pout=response.getWriter();
-        String jsonMomentStr=request.getParameter("jsonmomentstring");//安卓端发过来的json的对象名字叫jsonmomentstring
+        String jsonMomentStr=request.getParameter("jsonstring");//安卓端发过来的json的对象名字叫jsonmomentstring
 
         System.out.println("传入的json字符串为" + jsonMomentStr);
 

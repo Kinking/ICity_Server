@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Moment implements Serializable{
     private Integer mId;
     private Integer uId;
-    private String userNickName;
+    private String userNickname;
     private String momentContent;
     private String mUpTime;
     private Double longitude;
@@ -17,7 +17,7 @@ public class Moment implements Serializable{
     public Moment(Integer mId, Integer uId, String userNickName, String momentContent, String mUpTime, Double longitude, Double latitude) {
         this.mId = mId;
         this.uId = uId;
-        this.userNickName = userNickName;
+        this.userNickname = userNickName;
         this.momentContent = momentContent;
         this.mUpTime = mUpTime;
         this.longitude = longitude;
@@ -41,11 +41,11 @@ public class Moment implements Serializable{
     }
 
     public String getUserNickName() {
-        return userNickName;
+        return userNickname;
     }
 
     public void setUserNickName(String userNickName) {
-        this.userNickName = userNickName;
+        this.userNickname = userNickName;
     }
 
     public String getMomentContent() {
