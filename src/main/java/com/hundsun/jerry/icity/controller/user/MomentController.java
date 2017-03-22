@@ -1,8 +1,10 @@
 package com.hundsun.jerry.icity.controller.user;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hundsun.jerry.icity.model.Moment;
 import com.hundsun.jerry.icity.service.MomentService;
 import com.hundsun.jerry.icity.utils.json.JsonUtil;
+import com.hundsun.jerry.icity.utils.json.JsonUtilMoment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,11 +40,9 @@ public class MomentController {
 
         //使用JsonUtil将传入的输入流解析到我们后台的User数据类
         JsonUtil jsonUtil=new JsonUtil();
-        System.out.println(jsonMomentStr);
-
         List<Moment> list=jsonUtil.momentStringFromJson(jsonMomentStr);
         Moment moment=list.get(0);
-
+        System.out.println("验证是否打包进了Json1："+moment.getMomentContent());
         return momentService.addMoment(moment);
 
     }

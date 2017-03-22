@@ -28,7 +28,7 @@
 
     <!-- 创建新朋友圈 -->
     <insert id="addMoment" parameterType="com.hundsun.jerry.icity.model.Moment" >
-        INSERT INTO moment (usernickname,moment_content,m_up_time,longtitude,latitude)
+        INSERT INTO moment (usernickname,moment_content,m_up_time,longitude,latitude)
         VALUES (#{userNickname},#{momentContent},#{mUpTime},#{longitude},#{latitude})
     </insert>
 
