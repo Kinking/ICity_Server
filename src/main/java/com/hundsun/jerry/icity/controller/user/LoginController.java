@@ -60,7 +60,7 @@ public class LoginController {
             //将user对象写出json形式字符串
             jsonString= writeJson.getJsonData(list);
 
-            //把json封装的实体类字符串返回给移动端
+            //把json封装的用户信息类字符串返回给移动端
 
             response.setContentType("application/json");
             response.getWriter().write(jsonString);

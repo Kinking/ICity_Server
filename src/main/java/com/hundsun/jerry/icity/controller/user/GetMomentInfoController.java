@@ -2,7 +2,7 @@ package com.hundsun.jerry.icity.controller.user;
 
 import com.hundsun.jerry.icity.model.Moment;
 import com.hundsun.jerry.icity.service.MomentService;
-import com.hundsun.jerry.icity.utils.json.JsonUtil;
+import com.hundsun.jerry.icity.utils.json.WriteJson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,46 +12,57 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by huangzhiyuan on 2017/3/19.
+ * Created by huangzhiyuan on 2017/3/23.
  */
-
 @Controller
-public class MomentController {
+public class GetMomentInfoController {
     @Resource
     private MomentService momentService;
 
+    private String showMarkers(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 
-    private Integer addMoment(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException{
         //设置传输字符串的格式
         response.setContentType("text/html");
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
-        //PrintWriter是一种过滤流/处理流，对字节/字符流进行处理
-        PrintWriter Pout=response.getWriter();
-        String jsonMomentStr=request.getParameter("jsonstring");//安卓端发过来的json的对象名字叫jsonmomentstring
+        String jsonMomentAccept = request.getParameter("jsonMomentRequest");
 
-        System.out.println("传入的json字符串为" + jsonMomentStr);
+        String jsonMomentListString = null;
 
-        //使用JsonUtil将传入的输入流解析到我们后台的User数据类
-        JsonUtil jsonUtil=new JsonUtil();
-        List<Moment> list=jsonUtil.momentStringFromJson(jsonMomentStr);
-        Moment moment=list.get(0);
-        System.out.println("验证是否打包进了Json1："+moment.getMomentContent());
-        return momentService.addMoment(moment);
+        if(jsonMomentAccept.equals("jsonMomentRequest")){
+
+            System.out.println(jsonMomentListString);
+
+            List<Moment> list = new ArrayList<Moment>();
+
+            list = momentService.selectAllMoment();
+
+            WriteJson writeJson = new WriteJson();
+
+            jsonMomentListString = writeJson.getJsonData(list);
+
+            //向客户端传回相应字符
+            response.setContentType("application/json");
+            response.getWriter().write(jsonMomentListString);
+        }
+
+        response.getWriter().close();
+        return jsonMomentListString;
 
     }
 
-    @RequestMapping("/MomentController")
+    @RequestMapping("/GetMomentInfoController")
     private void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置传输字符串的格式
         response.setContentType("text/html");
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        Integer result = addMoment(request,response);
+        String result = showMarkers(request,response);
         response.setContentType("text/html;charset=	UTF-8");
         response.getWriter().print(result);
 
@@ -60,6 +71,4 @@ public class MomentController {
     private void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.getWriter().println("only support post method!");
     }
-
-
 }
