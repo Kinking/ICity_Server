@@ -58,12 +58,12 @@ public class GetMomentInfoController {
     @RequestMapping("/GetMomentInfoController")
     private void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置传输字符串的格式
-        response.setContentType("text/html;charset=utf-8");
+        response.setContentType("application/json");
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         String result = showMarkers(request,response);
-        response.setContentType("text/html;charset=	UTF-8");
-        response.getWriter().print(result);
+        response.setContentType("application/json");
+        response.getWriter().write(result);
 
     }
 
