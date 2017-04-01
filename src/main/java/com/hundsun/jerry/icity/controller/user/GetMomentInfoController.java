@@ -25,18 +25,13 @@ public class GetMomentInfoController {
 
     private String showMarkers(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 
-        //设置传输字符串的格式
-        response.setContentType("text/html");
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
-
         String jsonMomentAccept = request.getParameter("jsonMomentRequest");
 
         String jsonMomentListString = null;
 
-        if(jsonMomentAccept.equals("jsonMomentRequest")){
+//        if(jsonMomentAccept.equals("jsonMomentRequest")){
 
-            System.out.println(jsonMomentListString);
+            System.out.println("进来了");
 
             List<Moment> list = new ArrayList<Moment>();
 
@@ -46,12 +41,16 @@ public class GetMomentInfoController {
 
             jsonMomentListString = writeJson.getJsonData(list);
 
+            System.out.println(jsonMomentListString);
+
             //向客户端传回相应字符
             response.setContentType("application/json");
+
             response.getWriter().write(jsonMomentListString);
-        }
+//        }
 
         response.getWriter().close();
+
         return jsonMomentListString;
 
     }
@@ -59,7 +58,7 @@ public class GetMomentInfoController {
     @RequestMapping("/GetMomentInfoController")
     private void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置传输字符串的格式
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         String result = showMarkers(request,response);

@@ -14,6 +14,10 @@ public class Moment implements Serializable{
     private Double longitude;
     private Double latitude;
 
+    public Moment(){
+        super();
+    }
+
     public Moment(Integer mId, Integer uId, String userNickName, String momentContent, String mUpTime, Double longitude, Double latitude) {
         this.mId = mId;
         this.uId = uId;

@@ -23,6 +23,10 @@ public class UserInfo implements Serializable{
     private String profession;
     private String userName;
 
+    public  UserInfo(){
+        super();
+    }
+
     public UserInfo(Integer userId, String img_url, String userNickname, String sex, Integer age,
                     String userTrueName,String birthday,String constellation,String tel,
                     String qqNumber, String email,String address,String introduction,
@@ -173,7 +177,5 @@ public class UserInfo implements Serializable{
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-
 
 }

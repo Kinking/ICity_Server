@@ -14,6 +14,9 @@ public class User implements Serializable{
     private String img_url;
     private String userRegisterDate;
 
+    public User() {
+        super();
+    }
 
     public User(Integer id, String userName, String userPwd, String userTel, String userEmail, String img_url, String userRegisterDate) {
         this.id = id;
@@ -81,7 +84,4 @@ public class User implements Serializable{
         this.userRegisterDate = userRegisterDate;
     }
 
-    public User() {
-        super();
-    }
 }

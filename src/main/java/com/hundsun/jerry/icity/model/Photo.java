@@ -13,6 +13,10 @@ public class Photo implements Serializable{
     private String uploadTime;
     private String photoRemark;
 
+    public Photo(){
+        super();
+    }
+
     public Photo(Integer pId, Integer uId, String photoName, String photoUrl, String uploadTime, String photoRemark) {
         this.pId = pId;
         this.uId = uId;
