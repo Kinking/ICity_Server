@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.heitian.web</groupId>
-  <artifactId>web-ssm</artifactId>
+  <groupId>com.hunsun.jerry.icity</groupId>
+  <artifactId>ICity</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>web-ssm Maven Webapp</name>
+  <name>ICity Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -193,21 +193,9 @@
     </dependency>
   </dependencies>
 
-  <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-core</artifactId>
-    <version>2.8.0</version>
-  </dependency>
-  <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-  <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.8.0</version>
-  </dependency>
-
   <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 
   <build>
-    <finalName>web-ssm</finalName>
+    <finalName>ICity</finalName>
   </build>
 </project>

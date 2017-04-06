@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="ICity:war2">
+    <output-path>$PROJECT_DIR$/out/artifacts/ICity_war2</output-path>
+    <root id="archive" name="ICity_war.war">
+      <element id="artifact" artifact-name="ICity:war exploded" />
+    </root>
+  </artifact>
+</component>
