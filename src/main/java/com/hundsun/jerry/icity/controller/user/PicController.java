@@ -8,10 +8,9 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by huangzhiyuan on 2017/4/30.
@@ -27,6 +26,7 @@ public class PicController {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         /***将字符串转以Base64编码格式转为图片，传过来的字符串变量名为img***/
+        String fileName = null;
 
         //定义存储图片变量地址
         String imagePath = "";
@@ -36,12 +36,18 @@ public class PicController {
             //将base64 转 字节数组
             Base64 base = new Base64();
             byte[] decode = base.decode(imgBase64);
+
+            //图片保存到本地后重命名
+            SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
+            Date date = new Date(System.currentTimeMillis());
+            fileName = dateFormat.format(date)+".JPEG";
+
             //图片输出路径,目前路径设置有问题
-            imagePath = "/Users/huangzhiyuan/Pictures/pictestPath";
+            imagePath = "/Users/huangzhiyuan/Pictures/pictestPath/" + fileName;
             //定义图片输入流
             InputStream fin = new ByteArrayInputStream(decode);
             //定义图片输出流
-            FileOutputStream fout = new FileOutputStream(imagePath);
+            OutputStream fout = new FileOutputStream(imagePath);
             //写文件
             byte[] b = new byte[1024];
             int length = 0;
