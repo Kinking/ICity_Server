@@ -26,8 +26,8 @@
 
     <!-- 创建新照片信息 -->
     <insert id="addPhoto" parameterType="com.hundsun.jerry.icity.model.Photo" >
-        INSERT INTO photo (p_name,photo_url,up_time,p_remark)
-        VALUES (#{photoName},#{photoUrl},#{uploadTime},#{photoRemark})
+        INSERT INTO photo (p_name,photo_url,up_time)
+        VALUES (#{photoName},#{photoUrl},#{uploadTime})
     </insert>
 
 
