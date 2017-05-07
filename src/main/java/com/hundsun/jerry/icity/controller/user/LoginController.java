@@ -47,24 +47,29 @@ public class LoginController {
 
         System.out.print("b的值为"+ b );
 
+        String result = null;
+
         if (b)
         {
-            UserInfo userInfo=userInfoService.getUserInfoByUsername(username);
-            String jsonString=null;
-
-            //构造一个user对象
-            List<UserInfo> list=new ArrayList<UserInfo>();
-            list.add(userInfo);
-
-            WriteJson writeJson=new WriteJson();
-            //将user对象写出json形式字符串
-            jsonString= writeJson.getJsonData(list);
-
-            //把json封装的用户信息类字符串返回给移动端
-
-            response.setContentType("application/json");
-            response.getWriter().write(jsonString);
-            response.getWriter().close();
+//            result = "true";
+//
+//            UserInfo userInfo=userInfoService.getUserInfoByUsername(username);
+//            String jsonString=null;
+//
+//            //构造一个user对象
+//            List<UserInfo> list=new ArrayList<UserInfo>();
+//            list.add(userInfo);
+//
+//            WriteJson writeJson=new WriteJson();
+//            //将user对象写出json形式字符串
+//            jsonString= writeJson.getJsonData(list);
+//
+//            //把json封装的用户信息类字符串返回给移动端
+//
+//            response.setContentType("application/json");
+//            response.getWriter().write(result);
+////            response.getWriter().write(jsonString);
+//            response.getWriter().close();
 
 
 
@@ -72,6 +77,8 @@ public class LoginController {
         }
         else
         {
+//            result = "false";
+//            response.getWriter().write(result);
             out.write("登录失败");
         }
         out.flush();

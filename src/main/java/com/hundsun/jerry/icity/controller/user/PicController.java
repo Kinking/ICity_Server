@@ -43,7 +43,7 @@ public class PicController {
         fileName = dateFormat.format(date)+".JPEG";
 
         //图片输出路径,目前路径设置有问题
-        imagePath = "/Users/huangzhiyuan/Pictures/pictestPath/" + fileName;
+        imagePath = "/usr/Pictures/pictestPath/" + fileName;
 
         try{
             //将base64 转 字节数组
