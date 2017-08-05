@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hundsun.jerry.icity.mapper.PhotoMapper">
+<mapper namespace="com.jerryzhiyuan.icity.mapper.PhotoMapper">
 
     <!-- 定义数据库字段与实体对象的映射关系 -->
-    <resultMap type="com.hundsun.jerry.icity.model.Photo" id="PhotoBaseMap">
+    <resultMap type="com.jerryzhiyuan.icity.model.Photo" id="PhotoBaseMap">
         <id column="p_id" property="pId" jdbcType="INTEGER"/>
         <id column="u_id" property="uId" jdbcType="BIGINT"/>
         <result column="p_name" property="photoName" jdbcType="VARCHAR"/>
@@ -13,7 +13,7 @@
     </resultMap>
 
     <!-- 定义参数模型 -->
-    <parameterMap type="com.hundsun.jerry.icity.model.Photo" id="PhotoParam">
+    <parameterMap type="com.jerryzhiyuan.icity.model.Photo" id="PhotoParam">
         <parameter property="pId"/>
         <parameter property="uId"/>
         <parameter property="photoName"/>
@@ -25,14 +25,14 @@
     <!-- 定义要操纵的SQL语句 -->
 
     <!-- 创建新照片信息 -->
-    <insert id="addPhoto" parameterType="com.hundsun.jerry.icity.model.Photo" >
+    <insert id="addPhoto" parameterType="com.jerryzhiyuan.icity.model.Photo" >
         INSERT INTO photo (p_name,photo_url,up_time)
         VALUES (#{photoName},#{photoUrl},#{uploadTime})
     </insert>
 
 
     <!-- 修改照片资料 -->
-    <update id="modify" parameterType="com.hundsun.jerry.icity.model.Photo" >
+    <update id="modify" parameterType="com.jerryzhiyuan.icity.model.Photo" >
         UPDATE photo
         <set>
             <if test="pname != null">p_name=#{photoName},</if>
@@ -49,7 +49,7 @@
     </select>
 
     <!--&lt;!&ndash; 用户唯一性判断 &ndash;&gt;-->
-    <!--<select id="judgeUser" parameterType="String" resultMap="com.hundsun.jerry.icity.model.User">-->
+    <!--<select id="judgeUser" parameterType="String" resultMap="User">-->
     <!--select phone_mobile from user_login where phone_mobile=#{phone_mobile}-->
     <!--</select>-->
 

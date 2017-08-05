@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hundsun.jerry.icity.mapper.UserMapper">
+<mapper namespace="com.jerryzhiyuan.icity.mapper.UserMapper">
 
     <!-- 定义数据库字段与实体对象的映射关系 -->
-    <resultMap type="com.hundsun.jerry.icity.model.User" id="UserBaseMap">
+    <resultMap type="com.jerryzhiyuan.icity.model.User" id="UserBaseMap">
         <id column="u_id" property="id" jdbcType="BIGINT"/>
         <result column="u_name" property="userName" jdbcType="VARCHAR"/>
         <result column="u_password" property="userPwd" jdbcType="VARCHAR"/>
@@ -14,7 +14,7 @@
     </resultMap>
 
     <!-- 定义参数模型 -->
-    <parameterMap type="com.hundsun.jerry.icity.model.User" id="UserParam">
+    <parameterMap type="com.jerryzhiyuan.icity.model.User" id="UserParam">
         <parameter property="id"/>
         <parameter property="userName"/>
         <parameter property="userPwd"/>
@@ -26,7 +26,7 @@
     <!-- 定义要操纵的SQL语句 -->
 
     <!-- 创建新用户 -->
-    <insert id="addUser" parameterType="com.hundsun.jerry.icity.model.User" >
+    <insert id="addUser" parameterType="com.jerryzhiyuan.icity.model.User" >
         INSERT INTO user (u_name,u_password,u_tel,u_email,register_date)
         VALUES (#{userName},#{userPwd},#{userTel},#{userEmail},#{userRegisterDate})
     </insert>
@@ -38,7 +38,7 @@
     </delete>
 
     <!-- 修改用户资料 -->
-    <update id="modify" parameterType="com.hundsun.jerry.icity.model.User" >
+    <update id="modify" parameterType="com.jerryzhiyuan.icity.model.User" >
         UPDATE user
         <set>
             <if test="name != null">u_name=#{userName},</if>
@@ -83,7 +83,7 @@
     </select>
 
     <!--&lt;!&ndash; 用户唯一性判断 &ndash;&gt;-->
-    <!--<select id="judgeUser" parameterType="String" resultMap="com.hundsun.jerry.icity.model.User">-->
+    <!--<select id="judgeUser" parameterType="String" resultMap="User">-->
         <!--select phone_mobile from user_login where phone_mobile=#{phone_mobile}-->
     <!--</select>-->
 

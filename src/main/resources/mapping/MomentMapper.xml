@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hundsun.jerry.icity.mapper.MomentMapper">
+<mapper namespace="com.jerryzhiyuan.icity.mapper.MomentMapper">
 
     <!-- 定义数据库字段与实体对象的映射关系 -->
-    <resultMap type="com.hundsun.jerry.icity.model.Moment" id="MomentBaseMap">
+    <resultMap type="com.jerryzhiyuan.icity.model.Moment" id="MomentBaseMap">
         <id column="m_id" property="mId" jdbcType="INTEGER"/>
         <id column="u_id" property="uId" jdbcType="BIGINT"/>
         <result column="usernickname" property="userNickname" jdbcType="VARCHAR"/>
@@ -14,7 +14,7 @@
     </resultMap>
 
     <!-- 定义参数模型 -->
-    <parameterMap type="com.hundsun.jerry.icity.model.Moment" id="MomentParam">
+    <parameterMap type="com.jerryzhiyuan.icity.model.Moment" id="MomentParam">
         <parameter property="mId"/>
         <parameter property="uId"/>
         <parameter property="userNickname"/>
@@ -27,7 +27,7 @@
     <!-- 定义要操纵的SQL语句 -->
 
     <!-- 创建新朋友圈 -->
-    <insert id="addMoment" parameterType="com.hundsun.jerry.icity.model.Moment" >
+    <insert id="addMoment" parameterType="com.jerryzhiyuan.icity.model.Moment" >
         INSERT INTO moment (usernickname,moment_content,m_up_time,longitude,latitude)
         VALUES (#{userNickname},#{momentContent},#{mUpTime},#{longitude},#{latitude})
     </insert>
@@ -39,7 +39,7 @@
     </delete>
 
     <!-- 修改用户资料 -->
-    <update id="modify" parameterType="com.hundsun.jerry.icity.model.Moment" >
+    <update id="modify" parameterType="com.jerryzhiyuan.icity.model.Moment" >
         UPDATE moment
         <set>
             <if test="usernickname != null">usernickname=#{userNickname},</if>
@@ -72,7 +72,7 @@
     </select>
 
     <!--&lt;!&ndash; 用户唯一性判断 &ndash;&gt;-->
-    <!--<select id="judgeUser" parameterType="String" resultMap="com.hundsun.jerry.icity.model.User">-->
+    <!--<select id="judgeUser" parameterType="String" resultMap="User">-->
     <!--select phone_mobile from user_login where phone_mobile=#{phone_mobile}-->
     <!--</select>-->
 

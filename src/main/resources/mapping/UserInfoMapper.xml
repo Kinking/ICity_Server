@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hundsun.jerry.icity.mapper.UserInfoMapper">
+<mapper namespace="com.jerryzhiyuan.icity.mapper.UserInfoMapper">
     <!-- 定义数据库字段与实体对象的映射关系 -->
-    <resultMap type="com.hundsun.jerry.icity.model.UserInfo" id="UserInfoBaseMap">
+    <resultMap type="com.jerryzhiyuan.icity.model.UserInfo" id="UserInfoBaseMap">
         <id column="u_id" property="userId" jdbcType="BIGINT"/>
         <result column="img_url" property="img_url" jdbcType="VARCHAR"/>
         <result column="user_nickname" property="userNickname" jdbcType="VARCHAR"/>
@@ -22,7 +22,7 @@
     </resultMap>
 
     <!-- 定义参数模型 -->
-    <parameterMap type="com.hundsun.jerry.icity.model.UserInfo" id="UserInfoParam">
+    <parameterMap type="com.jerryzhiyuan.icity.model.UserInfo" id="UserInfoParam">
         <parameter property="userId"/>
         <parameter property="img_url"/>
         <parameter property="userNickname"/>
@@ -54,7 +54,7 @@
     </select>
 
     <!-- 更新用户个人资料 -->
-    <update id="updateUserInfo" parameterType="com.hundsun.jerry.icity.model.UserInfo" >
+    <update id="updateUserInfo" parameterType="com.jerryzhiyuan.icity.model.UserInfo" >
         UPDATE user_info
         <set>
             <if test="usernickename != null">user_nickname=#{userNickname},</if>
@@ -76,7 +76,7 @@
     </update>
 
     <!-- 创建新用户资料 -->
-    <insert id="addUserInfo" parameterType="com.hundsun.jerry.icity.model.UserInfo" >
+    <insert id="addUserInfo" parameterType="com.jerryzhiyuan.icity.model.UserInfo" >
         INSERT INTO user_info (user_nickname,u_sex,age,true_name,birthday,constellation,
         tel,qq,email,address,introduction,declaration,profession,u_name)
         VALUES (#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},#{NULL},
